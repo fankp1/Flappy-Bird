@@ -1,28 +1,29 @@
-/*****************************************************************************/
-/*  Module     : Grafikeinheit                                  Version 1.0  */
-/*****************************************************************************/
-/*                                                                           */
-/*  Function   : This is a short dmeo for the usage of the graphics module   */
-/*                                                                           */
-/*  Procedures : main   Mainprocedure for the demo                           */
-/*                                                                           */
-/*  Author     : I. Oesch                                                    */
-/*                                                                           */
-/*  History    : 03.05.2002  IO Created                                      */
-/*                                                                           */
-/*  File       : wormmain.c                                                  */
-/*                                                                           */
-/*****************************************************************************/
-/* MagicSoft                                                                 */
-/*****************************************************************************/
+/******************************************************************************/
+/*  Module:       Test_Grafikeinheit                            Version 1.0   */
+/******************************************************************************/
+/*                                                                            */
+/*  Beschreibung: Das Ziel von diesem Programm ist das Erlernen des Umgangs   */
+/*                mit den zur Verfügung gestellten Grafikfunktionen.          */
+/*                Zu Beginn wird die Einheit initialiersiert. Anschliessend   */
+/*                werden zum Test verschiedene Elemente in unterschiedlichen  */
+/*                Grössen, Formen und Positionen dargestellt.                 */
+/*                                                                            */
+/*  Funktion:     main (Testzwecke                                            */
+/*                                                                            */
+/*  Autor:        Philippe Fankhauser                                         */
+/*                                                                            */
+/*  Verlauf:      24.03.2017  Initalisierung der Einheit                      */
+/*                                                                            */
+/*  Datei:        Test_Grafikeinheit.c                                        */
+/*                                                                            */
+/******************************************************************************/
 
-/* imports */
+/* Importieren der externen Header-Dateien */
 #include "error.h"
 #include "window.h"
 #include "communication.h"
-//#include "ConsoleFunctions.h"
 
-
+/* Importieren von den Bibliothekfunktionen */
 #include <stdio.h>
 #include <math.h>
 #include <string.h>

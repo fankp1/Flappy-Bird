@@ -1,0 +1,13 @@
+INPUT(
+./debug\gui_main.o
+./debug\main.o
+./debug\Networking.o
+./debug\window.o
+./debug\Worker.o
+./debug\communication.o
+./debug\dbgmmgt.o
+./debug\error.o
+./debug\Test_Grafikeinheit.o
+./debug\moc_gui_main.o
+./debug\moc_Worker.o
+);

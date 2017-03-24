@@ -27,7 +27,7 @@ SOURCES += \
     LibrarySource/communication.c \
     LibrarySource/dbgmmgt.c \
     LibrarySource/error.c \
-    Grafikeinheit.c
+    Test_Grafikeinheit.c
 
 HEADERS += \
     communication.h \

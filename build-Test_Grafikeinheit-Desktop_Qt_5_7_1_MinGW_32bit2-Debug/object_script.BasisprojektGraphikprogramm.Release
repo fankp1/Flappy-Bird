@@ -1,0 +1,13 @@
+INPUT(
+./release\gui_main.o
+./release\main.o
+./release\Networking.o
+./release\window.o
+./release\Worker.o
+./release\communication.o
+./release\dbgmmgt.o
+./release\error.o
+./release\Test_Grafikeinheit.o
+./release\moc_gui_main.o
+./release\moc_Worker.o
+);
