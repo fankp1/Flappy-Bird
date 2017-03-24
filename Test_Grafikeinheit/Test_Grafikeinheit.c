@@ -8,11 +8,11 @@
 /*                werden zum Test verschiedene Elemente in unterschiedlichen  */
 /*                Grössen, Formen und Positionen dargestellt.                 */
 /*                                                                            */
-/*  Funktion:     main (Testzwecke                                            */
+/*  Funktion:     main (Testzwecke)                                           */
 /*                                                                            */
 /*  Autor:        Philippe Fankhauser                                         */
 /*                                                                            */
-/*  Verlauf:      24.03.2017  Initalisierung der Einheit                      */
+/*  Verlauf:      24.03.2017  Erstellen der Vorlage                           */
 /*                                                                            */
 /*  Datei:        Test_Grafikeinheit.c                                        */
 /*                                                                            */
@@ -29,82 +29,31 @@
 #include <string.h>
 #include <stdlib.h>
 
-/* module constant declaration */
-#define PI 3.1416
-
-/* module type declaration */
-typedef struct ImageMap {
-   int Height;
-   int Width;
-   int MapSizeInBytes;
-   ColorType *BasePtr;
-   ColorType **ImageMap;
-} ImageMapType;
+/* Deklaration der lokalen Varibeln */
 
 
-/* module data declaration */
-static volatile int Tick = 0;
+/************************************************************************************/
+/*  Funktion:       main                                                            */
+/************************************************************************************/
+/*                                                                                  */
+/*  Beschreibung:      Testen der Grafikfunktionen                                  */
+/*                                                                                  */
+/*  Type:              Global                                                       */
+/*                                                                                  */
+/*  Eingabeparameter:  argc   Anzahl von Argumente in der Kommandozeile des Systems */
+/*                     argv   Vektor mit den Argumenten                             */
+/*                                                                                  */
+/*  Ausgabeparameter:  Fehlercodes (falls kein Fehler null)                         */
+/*                                                                                  */
+/*  Autor:             Philippe Fankhauser                                          */
+/*                                                                                  */
+/*  Verlauf:           24.03.2017  Implementieren der Funktionen                    */
+/*                                                                                  */
+/************************************************************************************/
 
-int x_Kord = 0;
-int y_Kord = 0;
-int y_Kord_alt = 0;
-
-int x_1 = 200;
-int x_1alt;
-
-int x_2 = 300;
-int x_2alt;
-
-int x_3 = 400;
-int x_3alt;
-
-int x_4 = 500;
-int x_4alt;
-
-int aenderung = 0;
-
-/* module procedure declaration */
-static void TimerHandler (void *Param);
-void DrawTransformedImage(int x, int y, float Angle, float ScaleX, float ScaleY, int Image);
-ImageMapType *CreateImageMap(int MyImage);
-void DestroyImageMap(ImageMapType * ImageMap);
-
-
-void DoSomething(void *Paras);
-struct ThreadInfo {
-   volatile int DoStop;
-   volatile int Stopped;
-            int x, y;
-            int DelayTime;
-};
-
-static struct ThreadInfo Thread_1 = {0, 0, 222, 222, 100};
-static struct ThreadInfo Thread_2 = {0, 0, 277, 277, 50};
-
-
-/*****************************************************************************/
-/*  Procedure   : main                                                       */
-/*****************************************************************************/
-/*                                                                           */
-/*  Function    : Just a short demonstration for the usage of the graphic    */
-/*                module                                                     */
-/*                                                                           */
-/*  Type        : Global                                                     */
-/*                                                                           */
-/*  Input Para  : argc           Number of commandline arguments from system */
-/*                argv           Vectro with commandline arguments           */
-/*                                                                           */
-/*  Output Para : Errorcode to system, 0 on no error                         */
-/*                                                                           */
-/*  Author      : I. Oesch                                                   */
-/*                                                                           */
-/*  History     : 02.04.2002  IO  Created                                    */
-/*                                                                           */
-/*****************************************************************************/
 int gfxmain(int argc, char* argv[], const char *ApplicationPath)
 {
-   /* procedure data */
-   int x = 0;
+   /* Funktionsdaten */
    ColorType Col;
    ColorType ColBlack;
    ColorType ColRed;
@@ -112,22 +61,7 @@ int gfxmain(int argc, char* argv[], const char *ApplicationPath)
    ColorType ColYellow;
    ColorType TempCol;
 
-   TextDimensionType TextExtension;
-
-   int LoadedImage;
-   int MyImage;
-   int SavedImage;
-   int LastX, LastY;
-   int Key = 0;
-   float ColorAngle = 0;
-
-   char TextBuffer[100];
-
-
-   /* procedure code */
-
-
-   /* Set the color information */
+   /* Definition der Farben */
    Col.Red   = 0xff;
    Col.Green = 0;
    Col.Blue  = 0;
@@ -154,7 +88,12 @@ int gfxmain(int argc, char* argv[], const char *ApplicationPath)
    ColBlack.Alpha = 0xff;
 
    /* Grafikeinheit initalisieren */
-   InitGraphic(500, 500);  /* Negativer Wert -> Vollbildschirm */
+   InitGraphic(-1,-1);  /* Negativer Wert -> Vollbildschirm */
+   printf("Startbildschirm im Vollbild intialiseren\n");
+   printf("Hoehe: %d");
+   printf("Breite: %d");
+
+
    DrawFilledRectangle(0,0,500,500,COL_LIGHTBLUE,1);
 
    while(1)
@@ -210,7 +149,7 @@ int gfxmain(int argc, char* argv[], const char *ApplicationPath)
        }
        */
 
-       WaitMs(250);
+       /*WaitMs(250);
 
         PlaySoundOnce("\\sound2.wav");
 
@@ -302,13 +241,10 @@ int gfxmain(int argc, char* argv[], const char *ApplicationPath)
        DrawFilledRectangle(x_4alt,0,50,250,COL_LIGHTBLUE,1);
        DrawFilledRectangle(x_4,350,50,150,COL_ORANGE,1);
        DrawFilledRectangle(x_4alt,350,50,150,COL_LIGHTBLUE,1);
+
+       */
    }
 }
-
-
-
-
-
 
 /*****************************************************************************/
 /*  End Module  : Mainmodule                                                 */
